@@ -7,7 +7,8 @@ import Home from './pages/Home';
 import Login from './pages/login';
 import Signup from './pages/signup';
 import Footer from './components/footer';
-import ContactUs from './pages/ContactUs'
+import ContactUs from './pages/ContactUs';
+import CommentPage from './pages/Comment';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -21,6 +22,7 @@ function App() {
             <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
             <Route path='/signup' element={user ? <Navigate to='/' /> : <Signup />} />
             <Route path='/contact' element={<ContactUs />} />
+            <Route path='/comments/:id' element={<CommentPage />} />
           </Routes>
         </div>
         <Footer />

@@ -90,12 +90,20 @@ nav ul li a {
 
 .card{
   width: 18rem;
+  position: relative;
 }
 
 .allCakes{
   margin: 10px;
   display: grid;
   grid-template-columns: auto auto auto;
+}
+
+.comment-icon{
+  position: relative !important;
+  left: 120px !important;
+  font-size: 24px;
+  color: black;
 }
 
 form.signup, form.login {
@@ -217,6 +225,21 @@ footer {
 .com ul li {
   padding: 5px 0;
 }
+
+.comment-list{
+  margin: 10px;
+}
+
+.comment{
+  margin: 10px;
+}
+
+/* #floatingTextarea{
+  width: 70vw !important;
+  height: 20vh !important;
+  margin: 10px !important;
+  padding: 5px !important;
+} */
 
 @media only screen and (max-width: 749px) {
   .main-footer {

@@ -9,30 +9,30 @@ NOTE:
 */
 
 const Home = () => {
-    const {cakes,dispatch} = useContext(CakeContext);
-    const {user} = useContext(AuthContext);
+    const { cakes, dispatch } = useContext(CakeContext);
+    const { user } = useContext(AuthContext);
     useEffect(() => {
         const fetchCakes = async () => {
-            const response = await fetch('/api/cakes',{
-                headers:{
-                    'Authorization':`Bearer ${user.token}`
+            const response = await fetch('/api/cakes', {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
                 }
             });
             const json = await response.json();
             if (response.ok)
-                dispatch({type:'SET_CAKE', payload:json});
+                dispatch({ type: 'SET_CAKE', payload: json });
         }
         fetchCakes();
 
-    }, [dispatch]);
-    console.log(cakes);
+    }, [dispatch, user.token]);
+    // used user.token as I was getting warning that useEffect has a missing dependency: 'user.token' so either include it or remove dependency array
     return (
         <div className="home">
             <div className="allCakes">
                 {
                     cakes && cakes.map(cake => {
-                        return(
-                            <CakeCard key = {cake._id} cake={cake} />
+                        return (
+                            <CakeCard key={cake._id} cake={cake} />
                         )
                     })
                 }
