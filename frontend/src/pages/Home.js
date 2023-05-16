@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import CakeCard from '../components/cakeCard';
 import { CakeContext } from '../contexts/CakeContext';
+import { AuthContext } from '../contexts/AuthContext';
 /*
 NOTE:
     name by which you import a component must start with capital letters
@@ -9,9 +10,14 @@ NOTE:
 
 const Home = () => {
     const {cakes,dispatch} = useContext(CakeContext);
+    const {user} = useContext(AuthContext);
     useEffect(() => {
         const fetchCakes = async () => {
-            const response = await fetch('/api/cakes');
+            const response = await fetch('/api/cakes',{
+                headers:{
+                    'Authorization':`Bearer ${user.token}`
+                }
+            });
             const json = await response.json();
             if (response.ok)
                 dispatch({type:'SET_CAKE', payload:json});
