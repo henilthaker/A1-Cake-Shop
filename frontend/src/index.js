@@ -1,13 +1,20 @@
+// import 'https://kit.fontawesome.com/a076d05399.js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CakeContextProvider } from './contexts/CakeContext';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <CakeContextProvider>
+        <App />
+      </CakeContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );
 

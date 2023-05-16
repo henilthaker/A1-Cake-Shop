@@ -10,7 +10,11 @@ const cakeSchema = new Schema({
     price: {
         type: Number,
         required: true
-    }
+    },
+    // img: {
+    //     data: Buffer,
+    //     contentType: String
+    // }
 })
 
 module.exports = mongoose.model('cake', cakeSchema);

@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const cakeRoutes = require('./routes/cakeRoutes');
+// const requireAuth = require('./middleware/requireAuth');
 
 // setting up express app
 const app = express();
@@ -15,6 +16,8 @@ app.use((req, res, next) => {
     console.log(req.method, req.path);
     next();
 })
+
+// app.use(requireAuth); // we cannot use requierAuth middleware here coz then authorization will be checked for every route and hence I won't be able to even login coz even for login I will require a user token
 
 // routes
 app.use('/api/user', userRoutes);
