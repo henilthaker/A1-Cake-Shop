@@ -6,10 +6,11 @@ const CommentPage = () => {
     const { user } = useContext(AuthContext);
     const [all_comments, setAllComments] = useState(null);
     const [message, setMessage] = useState('');
+    console.log(user);
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        await fetch('/api/cakes/comments/'+id,{
+        const response = await fetch('/api/cakes/comments/'+id,{
             method:'PATCH',
             headers: {
                 'Content-Type':'application/json',
@@ -17,10 +18,14 @@ const CommentPage = () => {
             },
             body: JSON.stringify({'description': message})
         })
-    }
+        const json = await response.json();
+        if(response.ok)
+            window.location.reload(false);
+        console.log(json.error);
+    };
 
     useEffect(() => {
-        const fetchSingleCake = async () => {
+        const fetchComments = async () => {
             const response = await fetch('/api/cakes/' + id, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
@@ -33,8 +38,10 @@ const CommentPage = () => {
                 setAllComments(json.comments);
             }
         }
-        fetchSingleCake();
-    },[])
+        // when refreshing the comments page, user becomes null and then is set by the reducer function so if user is not null then only fetch the comments and so I am also specifying user as a dependency
+        if(user)
+            fetchComments();
+    },[user]);
     return (
         <div className="comment-list">
             <h2>Comments</h2>
