@@ -9,6 +9,7 @@ import Signup from './pages/signup';
 import Footer from './components/footer';
 import ContactUs from './pages/ContactUs';
 import CommentPage from './pages/Comment';
+import AddCake from './pages/AddCake';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -18,11 +19,12 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route path='/' element={user ? <Home /> : <Navigate to='/login' />} />
-            <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
-            <Route path='/signup' element={user ? <Navigate to='/' /> : <Signup />} />
-            <Route path='/contact' element={<ContactUs />} />
-            <Route path='/comments/:id' element={<CommentPage />} />
+            <Route exact path='/' element={user ? <Home /> : <Navigate to='/login' />} />
+            <Route exact path='/login' element={user ? <Navigate to='/' /> : <Login />} />
+            <Route exact path='/signup' element={user ? <Navigate to='/' /> : <Signup />} />
+            <Route exact path='/contact' element={<ContactUs />} />
+            <Route exact path='/add-cake' element={<AddCake />} />
+            <Route exact path='/comments/:id' element={<CommentPage />} />
           </Routes>
         </div>
         <Footer />

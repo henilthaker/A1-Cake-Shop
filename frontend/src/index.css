@@ -91,6 +91,7 @@ nav ul li a {
 .card{
   width: 18rem;
   position: relative;
+  margin: 25px;
 }
 
 .allCakes{
@@ -101,9 +102,24 @@ nav ul li a {
 
 .comment-icon{
   position: relative !important;
-  left: 120px !important;
-  font-size: 24px;
+  left: 70px !important;
+  top: 10px;
+  font-size: 20px;
   color: black;
+}
+
+.btn{
+  margin-top: 10px;
+  background-color: var(--headerfooterBgColor);
+  border: 0px;
+}
+
+.btn:hover{
+  background-color: var(--headerfooterBgColor);
+}
+
+.review-text{
+  font-size: 10px;
 }
 
 form.signup, form.login {
@@ -232,6 +248,16 @@ footer {
 
 .comment{
   margin: 10px;
+}
+
+.card{
+  text-align: center;
+  width: 20vw;
+}
+
+.card-img-top{
+  width: 20vw !important;
+  height: 30vh !important;
 }
 
 /* #floatingTextarea{

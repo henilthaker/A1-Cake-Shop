@@ -6,7 +6,7 @@ const CommentPage = () => {
     const { user } = useContext(AuthContext);
     const [all_comments, setAllComments] = useState(null);
     const [message, setMessage] = useState('');
-    console.log(user);
+    // console.log(user);
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -41,7 +41,7 @@ const CommentPage = () => {
         // when refreshing the comments page, user becomes null and then is set by the reducer function so if user is not null then only fetch the comments and so I am also specifying user as a dependency
         if(user)
             fetchComments();
-    },[user]);
+    },[user, id]);
     return (
         <div className="comment-list">
             <h2>Comments</h2>

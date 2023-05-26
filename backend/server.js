@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const cakeRoutes = require('./routes/cakeRoutes');
 // const requireAuth = require('./middleware/requireAuth');
@@ -10,6 +11,8 @@ const cakeRoutes = require('./routes/cakeRoutes');
 const app = express();
 
 // middleware
+app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 app.use(express.json());
 
 app.use((req, res, next) => {

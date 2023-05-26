@@ -11,7 +11,7 @@ NOTE:
 const Home = () => {
     const { cakes, dispatch } = useContext(CakeContext);
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     useEffect(() => {
         const fetchCakes = async () => {
             const response = await fetch('/api/cakes', {

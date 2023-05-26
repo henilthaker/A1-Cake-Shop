@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     getSingleCake(req, res);
 })
-router.post('/',upload.single('cake_image'),(req, res) => {
+router.post('/',(req, res) => {
     addCake(req, res);
 })
 router.delete('/:id', (req, res) => {

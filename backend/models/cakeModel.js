@@ -26,11 +26,10 @@ const cakeSchema = new Schema({
         type: Number,
         required: true
     },
-    comments: [commentSchema]
-    // img: {
-    //     data: Buffer,
-    //     contentType: String
-    // }
+    comments: [commentSchema],
+    image: {
+        type: String
+    }
 });
 
 module.exports = mongoose.model('cake', cakeSchema);
