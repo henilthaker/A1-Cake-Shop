@@ -44,7 +44,7 @@ const CommentPage = () => {
     },[user, id]);
     return (
         <div className="comment-list">
-            <h2>Comments</h2>
+            <h2>Reviews</h2>
             {
                 all_comments && all_comments.map(comment => {
                     return (

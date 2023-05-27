@@ -5,7 +5,6 @@ const AddCake = () => {
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
-
     useEffect(() => {
         try {
             const cur_user = JSON.parse(localStorage.getItem('user'));
@@ -60,14 +59,13 @@ const AddCake = () => {
             body: JSON.stringify({ title, price, image })
         })
         const json = await response.json();
-        if (response.ok)
-        {
+        if (response.ok) {
             setImage('');
             setTitle('');
             setPrice('');
+            window.location.href = '/';
         }
-        else
-        {
+        else {
             const error_div = document.body.createElement('div');
             error_div.innerHTML = json.error;
             document.body.appendChild(error_div);
@@ -75,7 +73,7 @@ const AddCake = () => {
 
     }
     return (
-        < div >
+        < div className="add-cake-form">
             <form action="/api/cakes" method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div>
                     <label>Title</label>

@@ -19,7 +19,7 @@ const Signup = () => {
             <input
                 type="textbox"
                 onChange={(e) => setName(e.target.value)}
-                value={email}
+                value={name}
             />
             <label>Email address:</label>
             <input
