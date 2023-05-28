@@ -34,7 +34,7 @@ const getSingleCake = async (req, res) => {
 }
 
 const addCake = async (req, res) => {
-    const {title, price, image} = req.body;
+    const { title, price, image } = req.body;
     const empty_fields = [];
     if (!title)
         empty_fields.push('title');
@@ -44,12 +44,12 @@ const addCake = async (req, res) => {
         return res.status(400).json({ empty_fields, 'error': 'please fill all the fields' });
     // in above line "return" is very important
     try {
-        const added_cake = await cake.create({title, price, image});
+        const added_cake = await cake.create({ title, price, image });
         // if (!added_cake)
         //     res.status(300).json({ 'mssg': 'error in adding the cake' });
-        res.status(200).json({ added_cake });
+        res.status(200).json(added_cake);
     } catch (err) {
-        res.status(200).json({ 'error': err.message });
+        res.status(300).json({ 'error': err.message });
     }
 }
 
@@ -70,5 +70,47 @@ const addComment = async (req, res) => {
     } catch (error) {
         res.status(300).json({ 'error': error.message });
     }
+
 }
-module.exports = { getAllCakes, getSingleCake, addCake, addComment };
+const deleteCake = async (req, res) => {
+    try {
+        const cake_id = req.params.id;
+        const user_id = req.user._id;
+        const cur_user = await user.findById(user_id);
+        if (cur_user.role !== 'admin')
+            return res.status(300).json({ 'error': 'you are not autorized to delete the cake' });
+
+        if (!mongoose.Types.ObjectId.isValid(cake_id))
+            return res.status(300).json({ 'error': 'invalid doc id' });
+        else {
+            const deleted_cake = await cake.findByIdAndDelete(cake_id);
+            if (!deleted_cake)
+                return res.status(404).json({ 'error': 'cake not found' });
+            return res.status(200).json(deleted_cake);
+        }
+    } catch (error) {
+        res.status(300).json({ 'error': error.message });
+    }
+}
+
+const updateCake = async (req, res) => {
+    try {
+        const cake_id = req.params.id;
+        const user_id = req.user._id;
+        const cur_user = await user.findById(user_id);
+        if (cur_user.role !== 'admin')
+            return res.status(300).json({ 'error': 'you are not autorized to delete the cake' });
+
+        if (!mongoose.Types.ObjectId.isValid(cake_id))
+            return res.status(300).json({ 'error': 'invalid doc id' });
+        else {
+            const updated_cake = await cake.findOneAndUpdate({ _id: cake_id }, { ...req.body });
+            if (!updated_cake)
+                return res.status(404).json({ 'error': 'cake not found' });
+            return res.status(200).json(updated_cake);
+        }
+    } catch (error) {
+        res.status(300).json({ 'error': error.message });
+    }
+}
+module.exports = { getAllCakes, getSingleCake, addCake, addComment, deleteCake, updateCake };

@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const { getAllCakes, getSingleCake, addCake, addComment } = require('../controllers/cakeController');
+const { getAllCakes, getSingleCake, addCake, addComment, deleteCake, updateCake } = require('../controllers/cakeController');
 const fs = require('fs');
 const path = require('path');
 const requireAuth = require('../middleware/requireAuth');
@@ -29,10 +29,10 @@ router.post('/',(req, res) => {
     addCake(req, res);
 })
 router.delete('/:id', (req, res) => {
-    res.json({ mssg: 'delete a cake' });
+    deleteCake(req,res);
 })
 router.patch('/:id', (req, res) => {
-    res.json({ mssg: 'update a cake' });
+    updateCake(req,res);
 });
 
 router.patch('/comments/:id', (req,res)=>{

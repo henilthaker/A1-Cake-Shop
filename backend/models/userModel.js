@@ -17,6 +17,10 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        required: true
     }
 });
 
@@ -34,7 +38,7 @@ userSchema.statics.login = async function (email, password) {
 }
 
 // static signup method
-userSchema.statics.signup = async function (name, email, password) {
+userSchema.statics.signup = async function (name, email, password, role) {
     if (!name || !email || !password)
         throw Error('All fields are mandatory');
 
@@ -51,7 +55,7 @@ userSchema.statics.signup = async function (name, email, password) {
 
     const salt = await bcrypt.genSalt(10);
     const hash_pswd = await bcrypt.hash(password, salt);
-    const user = await this.create({ name, email, password: hash_pswd });
+    const user = await this.create({ name, email, password: hash_pswd, role });
     return user;
 }
 module.exports = mongoose.model('user', userSchema);

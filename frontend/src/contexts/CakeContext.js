@@ -5,12 +5,12 @@ export const CakeContext = createContext();
 const cakeReducer = (state, action) => {
     switch (action.type) {
         case 'SET_CAKE':
-            return({
+            return ({
                 cakes: action.payload
             });
         case 'ADD_CAKE':
-            return({
-                cakes:[action.payload, ...state]
+            return ({
+                cakes: [action.payload, ...state]
             });
         case 'DELETE_CAKE':
             // {
@@ -23,10 +23,9 @@ const cakeReducer = (state, action) => {
             // }
 
             // OR
-            return({
-                cakes: state.cakes.filter(cake=>(
-                    cake._id != action.payload._id
-                ))
+            return ({
+                cakes: state.cakes.filter(cake => cake._id != action.payload._id
+                )
             });
         default:
             return state;

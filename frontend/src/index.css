@@ -20,7 +20,7 @@
 nav {
   background-color: var(--headerfooterBgColor);
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -38,7 +38,7 @@ nav button {
 
 .auth {
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
 }
@@ -81,11 +81,11 @@ nav ul li a {
   z-index: -1;
 }
 
-.username{
+.username {
   color: #fff;
 }
 
-.card{
+.card {
   position: relative;
   margin: 25px;
   background-color: white;
@@ -97,13 +97,14 @@ nav ul li a {
   width: 20vw;
 }
 
-.allCakes{
+.allCakes {
   margin: 10px;
   display: grid;
   grid-template-columns: auto auto auto;
 }
 
-.comment-icon{
+.comment-icon,
+.edit-icon {
   position: relative !important;
   left: 70px !important;
   top: 10px;
@@ -111,21 +112,32 @@ nav ul li a {
   color: black;
 }
 
-.btn{
+.btn {
   margin-top: 10px;
   background-color: var(--headerfooterBgColor);
   border: 0px;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: var(--headerfooterBgColor);
 }
 
-.review-text{
+.review-text,
+.edit-text {
   font-size: 10px;
 }
 
-form.signup, form.login {
+.delete-btn {
+  color: white !important;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form.signup,
+form.login {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
@@ -142,8 +154,9 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
-  background: var(--headerfooterBgColor);
+  background: var(--headerfooterBgColor) !important;
   border: 0;
   color: #fff;
   padding: 10px;
@@ -152,14 +165,16 @@ form button {
   cursor: pointer;
 }
 
-.add-cake-form{
+.add-cake-form {
   width: 40vw;
   margin: 20px auto;
 }
 
-#footer{
+#footer {
   background-color: var(--headerfooterBgColor);
   margin-top: 2%;
+  position: relative;
+  z-index: 2;
 }
 
 .main-footer {
@@ -173,7 +188,7 @@ form button {
   list-style: none;
 }
 
-.main-footer p{
+.main-footer p {
   font-size: medium;
   color: #ffffff;
 }
@@ -196,10 +211,10 @@ form button {
   text-decoration: none;
 }
 
-.address{
+.address {
   color: #f1f1f1;
   width: 30vw;
-  
+
 }
 
 footer {
@@ -213,7 +228,7 @@ footer {
   margin-top: 10px;
 }
 
-.address{
+.address {
   margin-top: 5px;
 }
 
@@ -239,30 +254,57 @@ footer {
 .sociallogos .logobox a {
   padding: 0 10px;
   text-decoration: none;
-  color: #ffffff; 
+  color: #ffffff;
   font-size: 22px;
 }
 
-.com ul{
+.com ul {
   padding: 0px !important;
 }
+
 .com ul li {
   padding: 5px 0;
 }
 
-.comment-list{
+.comment-list {
   margin: 20px auto;
   width: 40vw;
 }
 
-.comment{
+.comment {
   margin: 10px;
 }
 
-.card-img-top{
+.card-img-top {
   width: 20vw !important;
   height: 30vh !important;
   border-radius: 3px 3px 0px 0px;
+}
+
+.add-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 25px;
+}
+
+.add-btn {
+  text-align: center;
+  font-size: 30px;
+  position: sticky;
+  width: 40px;
+  height: 40px;
+  right: 25px;
+  background: var(--headerfooterBgColor);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.fa-plus {
+  font-weight: lighter !important;
+  text-decoration: none;
+  color: white
 }
 
 /* #floatingTextarea{
@@ -274,12 +316,13 @@ footer {
 
 @media only screen and (max-width: 749px) {
   .main-footer {
-    padding:20px;
-    display:grid;
+    padding: 20px;
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
-    .info{
-      padding:20px 0;
+
+  .info {
+    padding: 20px 0;
   }
 }
 
@@ -287,12 +330,14 @@ footer {
   .main-footer {
     grid-template-columns: 1fr;
   }
-  .sociallogos{
-    padding:20px 0;
+
+  .sociallogos {
+    padding: 20px 0;
   }
-  .com{
-    padding:20px 0;
-  } 
+
+  .com {
+    padding: 20px 0;
+  }
 
 }
 
@@ -307,7 +352,7 @@ footer {
 #map-id {
   height: 50vh;
   width: 45vw;
-  margin:5px auto;
+  margin: 5px auto;
 }
 
 .contact-details {
@@ -353,46 +398,50 @@ footer {
 
 @media screen and (max-width: 690px) {
   .contact {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   #map-id {
-      display: block;
-      height: 40vh;
-      width: 95vw;
-      margin: 5px auto;
+    display: block;
+    height: 40vh;
+    width: 95vw;
+    margin: 5px auto;
   }
 
   .contact-details {
-      /* display: block; */
-      width: 95vw;
-      height: 40vh;
-      margin: 5px auto;
-      /* overflow-wrap: break-word; */
-      box-sizing: border-box;
+    /* display: block; */
+    width: 95vw;
+    height: 40vh;
+    margin: 5px auto;
+    /* overflow-wrap: break-word; */
+    box-sizing: border-box;
   }
 
   .social {
-      right: 39vw;
+    right: 39vw;
   }
 }
 
 @media screen and (max-width: 540px) {
-  .contact{
-      margin: 0;
+  .contact {
+    margin: 0;
   }
-  nav ul li{
-      font-size: 14px;
+
+  nav ul li {
+    font-size: 14px;
   }
+
   #logo {
-      height: 8vh;
-      margin: 0;
+    height: 8vh;
+    margin: 0;
   }
-  .map{
-      margin: 0;
+
+  .map {
+    margin: 0;
   }
-  .contact-details{
-      margin: 5px auto;
-      font-size: 70%;
+
+  .contact-details {
+    margin: 5px auto;
+    font-size: 70%;
   }
 }

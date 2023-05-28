@@ -1,4 +1,4 @@
-// import 'https://kit.fontawesome.com/a076d05399.js';
+// import 'https://kit.fontawesome.com/yourcode.js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
