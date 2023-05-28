@@ -103,8 +103,7 @@ nav ul li a {
   grid-template-columns: auto auto auto;
 }
 
-.comment-icon,
-.edit-icon {
+.comment-icon{
   position: relative !important;
   left: 70px !important;
   top: 10px;
@@ -114,16 +113,15 @@ nav ul li a {
 
 .btn {
   margin-top: 10px;
-  background-color: var(--headerfooterBgColor);
+  background-color: var(--headerfooterBgColor) !important;
   border: 0px;
 }
 
 .btn:hover {
-  background-color: var(--headerfooterBgColor);
+  background-color: var(--headerfooterBgColor) !important;
 }
 
-.review-text,
-.edit-text {
+.review-text{
   font-size: 10px;
 }
 
