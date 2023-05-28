@@ -61,7 +61,7 @@ const CommentPage = () => {
                             setMessage(e.target.value);
                         }} />
                     <label htmlFor="floatingTextarea">Comments</label>
-                    <button className="my-4">Submit</button>
+                    <button className="my-4" disabled={user.role === 'admin'}>Submit</button>
                 </div>
             </form>
         </div>
