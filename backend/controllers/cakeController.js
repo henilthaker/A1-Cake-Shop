@@ -1,22 +1,19 @@
 const mongoose = require('mongoose');
 const cake = require('../models/cakeModel');
 const user = require('../models/userModel');
-// const multer = require('multer');
-// const fs = require('fs');
-// const path = require('path');
-
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'uploads')
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.fieldname + '-' + Date.now())
-//     }
-// });
-// const upload = multer({ storage: storage });
 
 const getAllCakes = async (req, res) => {
-    const all_cakes = await cake.find({});
+    //min price and max price will be in the form of string so parse them and convert them to integer
+    const min_price = parseInt(req.query.min_price);
+    const max_price = parseInt(req.query.max_price);
+
+    // even the below line will work i.e. it will work if you don't parse and keep them as string but it is better to parse to avoid any error
+    // const {min_price, max_price} = req.query;
+    
+    const all_cakes = await cake.find({price:{
+        $lte:max_price,
+        $gte:min_price
+    }});
     res.status(200).json(all_cakes);
 }
 

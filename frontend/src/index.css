@@ -13,7 +13,6 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -41,7 +40,6 @@ nav button {
   height: 11vh;
   margin-left: 20px;
   border-radius: 5px;
-  /* background-color: white; */
 }
 
 nav ul {
@@ -110,6 +108,10 @@ nav ul li a {
   width: 20vw;
 }
 
+/* .card :hover{
+  transform: scaleX(1.1) scaleY(1.1);
+} */
+
 .allCakes {
   margin: 10px;
   display: grid;
@@ -161,6 +163,18 @@ input {
 .add-cake-form {
   width: 40vw;
   margin: 20px auto;
+}
+
+#min, #max{
+  width: 8.5vw !important;
+  margin: 10px !important;
+}
+
+.price-filter{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /*******************************ALL BUTTON STYLES*******************************/
