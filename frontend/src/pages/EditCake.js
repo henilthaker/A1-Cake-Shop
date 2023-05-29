@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 const EditCake = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const { user, dispatch } = useContext(AuthContext);
     const [title, setTitle] = useState('');
@@ -83,7 +84,7 @@ const EditCake = () => {
             setImage('');
             setTitle('');
             setPrice('');
-            window.location.href = '/';
+            navigate('/');
         }
         else {
             const error_div = document.body.createElement('div');
@@ -133,11 +134,17 @@ const EditCake = () => {
                         name="image"
                         onChange={changeToBase64}
                     />
-                    {image === "" || image == null ? "" : <img src={image} height="120" widht="120" className="my-4" />}
+                    {image === "" || image == null ? "" :
+                        <div className="text-center">
+                            <img src={image} height="140" widht="140" className="my-2" />
+                        </div>
+                    }
                 </div>
-                <div>
+                <div className="container text-center">
                     <button type="submit" className="mx-4 my-4" disabled={!is_changed}>Save</button>
-                    <button className="mx-4 my-4" type='reset' onClick={() => window.location.href = '/'}>Cancel</button>
+                    <Link to='/'>
+                        <button className="mx-4 my-4">Cancel</button>
+                    </Link>
                 </div>
             </form>
         </div >
