@@ -17,6 +17,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+/*********************************NAVBAR STYLES*********************************/
 nav {
   background-color: var(--headerfooterBgColor);
   display: flex;
@@ -34,13 +35,6 @@ nav button {
   font-size: 1em;
   margin-left: 10px;
   margin-right: 5px;
-}
-
-.auth {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
 }
 
 #logo {
@@ -85,6 +79,25 @@ nav ul li a {
   color: #fff;
 }
 
+.auth {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+@media screen and (max-width: 540px) {
+  nav ul li {
+    font-size: 14px;
+  }
+
+  #logo {
+    height: 8vh;
+    margin: 0;
+  }
+}
+
+/********************HOME PAGE STYLES (INCLUDING CAKE CARD)********************/
 .card {
   position: relative;
   margin: 25px;
@@ -103,7 +116,7 @@ nav ul li a {
   grid-template-columns: auto auto auto;
 }
 
-.comment-icon{
+.comment-icon {
   position: relative !important;
   left: 70px !important;
   top: 10px;
@@ -111,29 +124,21 @@ nav ul li a {
   color: black;
 }
 
-.btn {
-  margin-top: 10px;
-  background-color: var(--headerfooterBgColor) !important;
-  border: 0px;
+.comment {
+  margin: 10px;
 }
 
-.btn:hover {
-  background-color: var(--headerfooterBgColor) !important;
+.card-img-top {
+  width: 20vw !important;
+  height: 30vh !important;
+  border-radius: 3px 3px 0px 0px;
 }
 
-.review-text{
+.review-text {
   font-size: 10px;
 }
 
-.delete-btn {
-  color: white !important;
-}
-
-.btn-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-
+/********************************ALL FORM STYLES********************************/
 form.signup,
 form.login {
   max-width: 400px;
@@ -153,6 +158,31 @@ input {
   box-sizing: border-box;
 }
 
+.add-cake-form {
+  width: 40vw;
+  margin: 20px auto;
+}
+
+/*******************************ALL BUTTON STYLES*******************************/
+.btn {
+  margin-top: 10px;
+  background-color: var(--headerfooterBgColor) !important;
+  border: 0px;
+}
+
+.btn:hover {
+  background-color: var(--headerfooterBgColor) !important;
+}
+
+.delete-btn {
+  color: white !important;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 form button {
   background: var(--headerfooterBgColor) !important;
   border: 0;
@@ -163,11 +193,126 @@ form button {
   cursor: pointer;
 }
 
-.add-cake-form {
-  width: 40vw;
-  margin: 20px auto;
+.add-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 25px;
 }
 
+.add-btn {
+  text-align: center;
+  font-size: 30px;
+  position: sticky;
+  width: 40px;
+  height: 40px;
+  right: 25px;
+  background: var(--headerfooterBgColor);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.fa-plus {
+  font-weight: lighter !important;
+  text-decoration: none;
+  color: white
+}
+
+/******************************CONTACT PAGE STYLES******************************/
+.contact {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  margin: 10px;
+}
+
+#map-id {
+  height: 50vh;
+  width: 45vw;
+  margin: 5px auto;
+}
+
+.contact-details {
+  margin: 5px 0px;
+  width: 45vw;
+  color: var(--headerfooterBgColor);
+  background-color: white;
+  border: 1px solid var(--headerfooterBgColor);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.contact-details ul {
+  margin: 10px 0px;
+}
+
+.generalContact li {
+  margin: 15px 0px;
+  list-style: none;
+}
+
+.social {
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 1vw;
+  right: 21vw;
+}
+
+.social li {
+  list-style: none;
+  margin: 0px 5px;
+}
+
+.social li a {
+  text-decoration: none;
+  color: var(--headerfooterBgColor);
+}
+
+@media screen and (max-width: 690px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  #map-id {
+    display: block;
+    height: 40vh;
+    width: 95vw;
+    margin: 5px auto;
+  }
+
+  .contact-details {
+    /* display: block; */
+    width: 95vw;
+    height: 40vh;
+    margin: 5px auto;
+    /* overflow-wrap: break-word; */
+    box-sizing: border-box;
+  }
+
+  .social {
+    right: 39vw;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .contact {
+    margin: 0;
+  }
+}
+
+.map {
+  margin: 0;
+}
+
+.contact-details {
+  margin: 5px auto;
+  font-size: 70%;
+}
+
+/*********************************FOOTER STYLES*********************************/
 #footer {
   background-color: var(--headerfooterBgColor);
   margin-top: 2%;
@@ -269,49 +414,6 @@ footer {
   width: 40vw;
 }
 
-.comment {
-  margin: 10px;
-}
-
-.card-img-top {
-  width: 20vw !important;
-  height: 30vh !important;
-  border-radius: 3px 3px 0px 0px;
-}
-
-.add-btn-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  position: sticky;
-  bottom: 25px;
-}
-
-.add-btn {
-  text-align: center;
-  font-size: 30px;
-  position: sticky;
-  width: 40px;
-  height: 40px;
-  right: 25px;
-  background: var(--headerfooterBgColor);
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.fa-plus {
-  font-weight: lighter !important;
-  text-decoration: none;
-  color: white
-}
-
-/* #floatingTextarea{
-  width: 70vw !important;
-  height: 20vh !important;
-  margin: 10px !important;
-  padding: 5px !important;
-} */
-
 @media only screen and (max-width: 749px) {
   .main-footer {
     padding: 20px;
@@ -337,109 +439,4 @@ footer {
     padding: 20px 0;
   }
 
-}
-
-
-.contact {
-  display: flex;
-  justify-content: space-evenly;
-  position: relative;
-  margin: 10px;
-}
-
-#map-id {
-  height: 50vh;
-  width: 45vw;
-  margin: 5px auto;
-}
-
-.contact-details {
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center; */
-  margin: 5px 0px;
-  width: 45vw;
-  color: var(--headerfooterBgColor);
-  background-color: white;
-  border: 1px solid var(--headerfooterBgColor);
-  border-radius: 5px;
-  padding: 15px;
-}
-
-.contact-details ul {
-  margin: 10px 0px;
-}
-
-.generalContact li {
-  margin: 15px 0px;
-  list-style: none;
-}
-
-.social {
-  margin: 0px auto;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 1vw;
-  right: 21vw;
-}
-
-.social li {
-  list-style: none;
-  margin: 0px 5px;
-}
-
-.social li a {
-  text-decoration: none;
-  color: var(--headerfooterBgColor);
-}
-
-@media screen and (max-width: 690px) {
-  .contact {
-    flex-direction: column;
-  }
-
-  #map-id {
-    display: block;
-    height: 40vh;
-    width: 95vw;
-    margin: 5px auto;
-  }
-
-  .contact-details {
-    /* display: block; */
-    width: 95vw;
-    height: 40vh;
-    margin: 5px auto;
-    /* overflow-wrap: break-word; */
-    box-sizing: border-box;
-  }
-
-  .social {
-    right: 39vw;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .contact {
-    margin: 0;
-  }
-
-  nav ul li {
-    font-size: 14px;
-  }
-
-  #logo {
-    height: 8vh;
-    margin: 0;
-  }
-
-  .map {
-    margin: 0;
-  }
-
-  .contact-details {
-    margin: 5px auto;
-    font-size: 70%;
-  }
 }
