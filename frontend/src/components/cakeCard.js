@@ -53,7 +53,7 @@ const CakeCard = ({ cake }) => {
 
                 </div>
                 {user.role === 'customer' &&
-                    <Link to="/" className="btn btn-primary">Buy</Link>}
+                    <Link to={`/order-cake/${cake._id}`} className="btn btn-primary">Order</Link>}
                 {
                     user.role === 'admin' &&
                     (

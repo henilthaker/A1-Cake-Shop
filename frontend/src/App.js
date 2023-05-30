@@ -11,6 +11,7 @@ import ContactUs from './pages/ContactUs';
 import CommentPage from './pages/Comment';
 import AddCake from './pages/AddCake';
 import EditCake from './pages/EditCake';
+import OrderCake from './pages/OrderCake';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -33,6 +34,8 @@ function App() {
             <Route exact path='/edit-cake/:id' element={(user && user.role === 'admin') ? <EditCake /> : <Navigate to='/' />} />
 
             <Route exact path='/comments/:id' element={<CommentPage />} />
+
+            <Route exact path='/order-cake/:id' element={<OrderCake />} />
           </Routes>
         </div>
         <Footer />

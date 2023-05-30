@@ -58,7 +58,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: white
+  color: white;
 }
 
 #menu-items {
@@ -150,7 +150,7 @@ form.login {
   border-radius: 4px;
 }
 
-input {
+input, textarea, select{
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -158,10 +158,11 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: 1rem !important;
 }
 
-.add-cake-form {
-  width: 40vw;
+.add-cake-form, .order-form{
+  width: 35vw;
   margin: 20px auto;
 }
 
@@ -200,7 +201,7 @@ input {
 form button {
   background: var(--headerfooterBgColor) !important;
   border: 0;
-  color: #fff;
+  color: #fff !important;
   padding: 10px;
   /* font-family: "Poppins"; */
   border-radius: 4px;
