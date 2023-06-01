@@ -13,6 +13,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 1em;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -38,7 +39,7 @@ nav button {
 
 #logo {
   height: 11vh;
-  margin-left: 20px;
+  margin-left: 50px;
   border-radius: 5px;
 }
 
@@ -95,6 +96,37 @@ nav ul li a {
   }
 }
 
+@media (width < 420px) {
+  nav {
+    justify-content: flex-start;
+  }
+
+  nav ul {
+    margin: 0px;
+  }
+
+  nav ul li {
+    font-size: 12px;
+    margin: 7px;
+  }
+
+  .auth {
+    font-size: 14px;
+  }
+}
+
+@media (width <=340px) {
+  nav button {
+    font-size: 12px;
+    padding: 3px 3px;
+    margin-left: 5px;
+  }
+
+  nav ul {
+    padding-left: 1rem;
+  }
+}
+
 /********************HOME PAGE STYLES (INCLUDING CAKE CARD)********************/
 .card {
   position: relative;
@@ -105,8 +137,57 @@ nav ul li a {
   box-shadow: 2px 2px 5px rgb(188, 188, 188);
   box-sizing: content-box;
   text-align: center;
-  width: 20vw;
+  width: 237px;
+  height: 309px;
 }
+
+/* @media (width < 1130px) {
+  .card {
+    width: 22vw;
+  }
+}
+
+@media (width <=1050px) {
+  .card {
+    width: 23vw;
+  }
+}
+
+@media (width <=995px) {
+  .card {
+    width: 24vw;
+  }
+}
+
+@media (width <=955px) {
+  .card {
+    width: 26vw;
+  }
+}
+
+@media (width <=900px) {
+  .card {
+    width: 31vw;
+  }
+}
+
+@media (width<=770px) {
+  .card {
+    width: 32vw;
+  }
+}
+
+@media (width<=725px) {
+  .card {
+    width: 34vw;
+  }
+}
+
+@media (width<=675px) {
+  .card {
+    width: 36vw;
+  }
+} */
 
 /* .card :hover{
   transform: scaleX(1.1) scaleY(1.1);
@@ -117,6 +198,54 @@ nav ul li a {
   display: grid;
   grid-template-columns: auto auto auto;
 }
+
+@media (width < 991px) {
+  .allCakes {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (width <=640px) {
+  .allCakes {
+    grid-template-columns: auto;
+  }
+}
+
+/* @media (width <=465px) {
+  .card {
+    width: 54vw;
+  }
+}
+
+@media (width <=425px) {
+  .card {
+    width: 57vw;
+  }
+}
+
+@media (width <=400px) {
+  .card {
+    width: 60vw;
+  }
+}
+
+@media (width <=380px) {
+  .card {
+    width: 65vw;
+  }
+}
+
+@media (width <=350px) {
+  .card {
+    width: 70vw;
+  }
+}
+
+@media (width <=330px) {
+  .card {
+    width: 75vw;
+  }
+} */
 
 .comment-icon {
   position: relative !important;
@@ -131,8 +260,8 @@ nav ul li a {
 }
 
 .card-img-top {
-  width: 20vw !important;
-  height: 30vh !important;
+  width: 100% !important;
+  height: 53% !important;
   border-radius: 3px 3px 0px 0px;
 }
 
@@ -150,32 +279,64 @@ form.login {
   border-radius: 4px;
 }
 
-input, textarea, select{
+input,
+textarea,
+select {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd !important;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 1rem !important;
+  box-shadow: none !important;
 }
 
-.add-cake-form, .order-form{
-  width: 35vw;
+.add-cake-form,
+.order-form {
+  width: 400px;
   margin: 20px auto;
 }
 
-#min, #max{
-  width: 8.5vw !important;
+#min,
+#max {
+  width: 99.3997px !important;
   margin: 10px !important;
 }
 
-.price-filter{
+.price-filter {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+@media (width <=425px) {
+
+  .add-cake-form,
+  .order-form {
+    width: 300px;
+  }
+
+  form .login,
+  form .signup {
+    width: 300px;
+  }
+}
+
+@media (width <=400px) {
+
+  #min,
+  #max {
+    font-size: 12px !important;
+    width: 80.3997px !important;
+    margin: 7px !important;
+  }
+
+  .price-filter button {
+    font-size: 12px !important;
+  }
 }
 
 /*******************************ALL BUTTON STYLES*******************************/
@@ -336,6 +497,7 @@ form button {
 }
 
 .main-footer {
+  text-align: center;
   padding: 2% 0;
   display: flex;
   flex-direction: row;
@@ -371,8 +533,7 @@ form button {
 
 .address {
   color: #f1f1f1;
-  width: 30vw;
-
+  text-align: center;
 }
 
 footer {
@@ -454,4 +615,10 @@ footer {
     padding: 20px 0;
   }
 
+}
+
+@media (width >= 480px){
+  .address{
+    max-width: 210px;
+  }
 }

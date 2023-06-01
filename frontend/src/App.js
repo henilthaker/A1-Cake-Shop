@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <div className="pages">
+        <div className="pages container-fluid">
           <Routes>
             <Route exact path='/' element={user ? <Home /> : <Navigate to='/login' />} />
 
