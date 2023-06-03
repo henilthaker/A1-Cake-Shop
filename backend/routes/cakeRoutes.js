@@ -1,20 +1,8 @@
 const express = require('express');
-const multer = require('multer');
 const { getAllCakes, getSingleCake, addCake, addComment, deleteCake, updateCake } = require('../controllers/cakeController');
-const fs = require('fs');
-const path = require('path');
 const requireAuth = require('../middleware/requireAuth');
 
 const router = express.Router();
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'images')
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-});
-const upload = multer({storage:storage});
 
 // requireAuth for all cake routes
 router.use(requireAuth);
